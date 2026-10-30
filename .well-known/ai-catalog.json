@@ -1,0 +1,54 @@
+{
+  "specVersion": "0.91",
+  "host": {
+    "displayName": "Clipunder",
+    "identifier": "urn:air:clipunder.com:host"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:clipunder.com:page:compressor",
+      "displayName": "Video compressor for Discord upload limits",
+      "description": "Browser-side tool that re-encodes a video to a chosen target size (10, 25, 50, 100, 500 MB or custom) and returns an H.264 MP4. Nothing is uploaded.",
+      "type": "text/html",
+      "url": "https://clipunder.com/",
+      "representativeQueries": [
+        "compress a video for discord",
+        "make a video under 10 mb for discord",
+        "discord video compressor without uploading"
+      ]
+    },
+    {
+      "identifier": "urn:air:clipunder.com:page:about",
+      "displayName": "About Clipunder",
+      "description": "What the tool does, what it does not do, which containers it reads, and how the encoding works.",
+      "type": "text/html",
+      "url": "https://clipunder.com/about",
+      "representativeQueries": [
+        "what formats does clipunder read",
+        "does clipunder upload my video"
+      ]
+    },
+    {
+      "identifier": "urn:air:clipunder.com:page:privacy",
+      "displayName": "Clipunder privacy policy",
+      "description": "What the site does with files, cookies and hosting logs. Files never leave the browser.",
+      "type": "text/html",
+      "url": "https://clipunder.com/privacy",
+      "representativeQueries": [
+        "clipunder privacy policy",
+        "does this video compressor upload files"
+      ]
+    },
+    {
+      "identifier": "urn:air:clipunder.com:page:contact",
+      "displayName": "Contact Clipunder",
+      "description": "How to report a broken encode or a wrong upload limit.",
+      "type": "text/html",
+      "url": "https://clipunder.com/contact",
+      "representativeQueries": [
+        "contact clipunder",
+        "report a broken video compression"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,11 @@
+/ai-catalog.json
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json
+
+/.well-known/ai-catalog.json
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json
+
 # Machine-readable pointers for agents. Every target here really exists.
 /*
   Link: </ai-catalog.json>; rel="describedby"
