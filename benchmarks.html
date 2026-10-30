@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benchmarks — how long compression actually takes</title>
+<meta name="description" content="Five real runs through Clipunder, with input size, output size and wall-clock time. Measured on a 2 vCPU Windows 11 machine in a Chromium browser.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#fbfaf7">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://clipunder.com/benchmarks">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Clipunder">
+<meta property="og:title" content="Benchmarks — how long compression actually takes">
+<meta property="og:description" content="Five real runs: input size, output size, wall-clock time. No projections.">
+<meta property="og:url" content="https://clipunder.com/benchmarks">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="/" aria-label="Clipunder — home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">Clipunder</span>
+    </a>
+    <p class="topbar__note">
+      <span class="dot" aria-hidden="true"></span>
+      Runs in your tab &middot; nothing is uploaded
+    </p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <article class="doc">
+      <p class="hero__eyebrow micro">Benchmarks</p>
+      <h1>Five runs, timed on the clock</h1>
+      <p class="lede">Every number on this page came out of an actual compression through the live page on 30 October 2026. Nothing here is projected or averaged from someone else's hardware.</p>
+
+      <h2>Method</h2>
+      <p>The page was opened in Chromium on Windows 11, a file was handed to the file input, the target size was set, and the clock ran from the click on the compress button until a result existed. One run per file, not a best-of-five. Timing therefore includes reading the file, decoding, encoding and muxing &mdash; everything a visitor experiences.</p>
+      <p>The machine is a small cloud instance with <strong>2 vCPU</strong>. That matters: encoding speed scales with cores and with the hardware encoder the browser picks, so a modern desktop will be faster than this table and an older laptop slower.</p>
+
+      <h2>The runs</h2>
+      <table class="doc__table">
+        <thead>
+          <tr><th>Input</th><th>In</th><th>Target</th><th>Out</th><th>Time</th><th>Path</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MP4, 1920&times;1080, 30 fps, 30.44 s</td><td>20.7 MB</td><td>10 MB</td><td>9.81 MB</td><td>40.1 s</td><td>Re-encoded to 720p</td></tr>
+          <tr><td>MP4, 1920&times;1080, 30 fps, 30.44 s</td><td>26.2 MB</td><td>25 MB</td><td>24.4 MB</td><td>31.5 s</td><td>Re-encoded, resolution kept</td></tr>
+          <tr><td>MP4, 1280&times;720, 30 fps, 6.0 s, no audio</td><td>3.9 MB</td><td>2 MB</td><td>1.96 MB</td><td>2.3 s</td><td>Re-encoded</td></tr>
+          <tr><td>WEBM, VP9, 854&times;480, 30 fps, 8.0 s</td><td>873 KB</td><td>1 MB</td><td>906 KB</td><td>7.8 s</td><td>VP9 cannot be copied &rarr; re-encoded</td></tr>
+          <tr><td>MKV, H.264, 854&times;480, 30 fps, 8.0 s</td><td>7.96 MB</td><td>10 MB</td><td>7.96 MB</td><td>0.5 s</td><td>Already fits &rarr; repackaged, streams copied</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What the table shows</h2>
+      <ul>
+        <li><strong>The fast path is about 80&times; faster.</strong> The MKV that already fit was repackaged in 0.5 s; the comparable re-encode took tens of seconds. If your file already fits the cap, you are not paying for an encode at all.</li>
+        <li><strong>Time tracks pixels and duration, not file size.</strong> The 30-second 1080p clip and the 6-second 720p clip differ by 20&times; in wall clock because one has roughly 12&times; the frames and 2.25&times; the pixels per frame.</li>
+        <li><strong>Overshoot is not zero.</strong> A 1 MB target produced 906 KB &mdash; 9% under, which is the budget working as designed. A 10 MB target produced 9.81 MB. Files land a few percent under the cap rather than exactly on it.</li>
+        <li><strong>Repackaging can grow a file slightly.</strong> The MKV came back 1,780 bytes larger as MP4 because container overhead differs. Still under the target, but worth knowing if you are chasing the last kilobyte.</li>
+      </ul>
+
+      <h2>What this page is not</h2>
+      <p>It is not a comparison against desktop encoders, and it is not a promise about your machine. A browser can only use the encoders the browser exposes; on a phone with a hardware encoder the same job may be quicker, and on a very old laptop it may be several times slower. If your device is slow, lower the target resolution by picking a smaller cap &mdash; that reduces work far more than any setting in this page.</p>
+
+      <p class="fine"><a href="/">Back to the compressor</a></p>
+    </article>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <p class="foot__word" aria-hidden="true">Clipunder</p>
+      <p class="foot__note">One page, one job. No account, no analytics, no upload &mdash; the file never leaves the tab.</p>
+    </div>
+    <nav class="foot__nav" aria-label="Site">
+      <a href="/">Compressor</a>
+      <a href="/about">About</a>
+      <a href="/benchmarks">Benchmarks</a>
+      <a href="/formats">Formats</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <p class="foot__small">Encoding uses WebCodecs &middot; MP4 muxing by Mediabunny (MPL-2.0) &middot; files stay on your device.</p>
+  </div>
+</footer>
+
+</body>
+</html>

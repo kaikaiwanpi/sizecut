@@ -10,6 +10,10 @@
 - [Compressor](https://clipunder.com/): pick a target size (10, 25, 50, 100, 500 MB
   or custom), drop an MP4/MOV/M4V/WEBM/MKV file, download an H.264 MP4. Includes the
   Discord upload-limit table with sources, the bitrate math, and a FAQ.
+- [Benchmarks](https://clipunder.com/benchmarks): five timed runs through the live page —
+  input size, output size, wall-clock seconds, and which path each file took.
+- [Formats](https://clipunder.com/formats): the container matrix — what is read, what is
+  repackaged without re-encoding, what AVI does, why iOS Safari cannot run the tool.
 - [About](https://clipunder.com/about): what the tool does and does not do, supported
   containers, how the encoding works (WebCodecs + Mediabunny MPL-2.0).
 - [Privacy](https://clipunder.com/privacy): files are never uploaded; no cookies, no

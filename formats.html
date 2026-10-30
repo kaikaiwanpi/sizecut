@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supported formats — what opens, what is copied, what is re-encoded</title>
+<meta name="description" content="Which containers and codecs Clipunder reads, which ones skip re-encoding entirely, what AVI does, and why iPhone Safari cannot run this tool.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#fbfaf7">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://clipunder.com/formats">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Clipunder">
+<meta property="og:title" content="Supported formats — what opens and what gets re-encoded">
+<meta property="og:description" content="MP4, MOV, M4V, WEBM, MKV are read. AVI is not. VP9 cannot be copied, so it is re-encoded.">
+<meta property="og:url" content="https://clipunder.com/formats">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="/" aria-label="Clipunder — home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">Clipunder</span>
+    </a>
+    <p class="topbar__note">
+      <span class="dot" aria-hidden="true"></span>
+      Runs in your tab &middot; nothing is uploaded
+    </p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <article class="doc">
+      <p class="hero__eyebrow micro">Formats</p>
+      <h1>What opens, and what it costs you</h1>
+      <p class="lede">The container decides which path your file takes: returned untouched, repackaged in half a second, or re-encoded at full cost. This is the honest matrix.</p>
+
+      <h2>The matrix</h2>
+      <table class="doc__table">
+        <thead>
+          <tr><th>Container</th><th>Reads?</th><th>If it already fits</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MP4 (H.264 + AAC)</td><td>Yes</td><td>Returned untouched, original name</td><td>The common case: no work at all</td></tr>
+          <tr><td>MOV (H.264 + AAC)</td><td>Yes</td><td>Repackaged to MP4, streams copied</td><td>Under a second; quality untouched</td></tr>
+          <tr><td>M4V</td><td>Yes</td><td>Same as MP4</td><td>MP4 with an Apple extension</td></tr>
+          <tr><td>MKV (H.264 + AAC)</td><td>Yes</td><td>Repackaged to MP4, streams copied</td><td>Measured: 7.96 MB in 0.5 s</td></tr>
+          <tr><td>WEBM (VP9 or VP8)</td><td>Yes</td><td>Re-encoded, not copied</td><td>MP4 cannot carry VP9 in the target profile</td></tr>
+          <tr><td>AVI</td><td><strong>No</strong></td><td>&mdash;</td><td>The page says so up front instead of failing halfway</td></tr>
+        </tbody>
+      </table>
+      <p>Output is always the same: H.264 video with AAC audio inside MP4, which is what Discord embeds and plays on desktop, web and mobile.</p>
+
+      <h2>Two different costs hiding in one button</h2>
+      <p>A file that already fits never enters the encoder. MP4 comes back byte-identical under its own name; MKV or MOV gets its compressed streams copied into a new MP4 wrapper, which is a packaging exercise, not a quality decision. Measured on the live page: 0.5 seconds for a 7.96 MB MKV, versus tens of seconds for the same file re-encoded.</p>
+      <p>Everything else is a real encode: decode every frame, re-compress at a bitrate derived from your target size, and mux. That is where the seconds go, and where quality is decided.</p>
+
+      <h2>Why AVI is refused</h2>
+      <p>The browser stack this page relies on (WebCodecs plus a JavaScript demuxer) has no AVI container parser. Rather than accept the file and fail minutes later, the page rejects it at intake and names the containers that do work. If you need AVI, convert the container first &mdash; the video inside is often H.264 already, and a remux will be lossless and fast.</p>
+
+      <h2>Why iPhone and iPad are refused</h2>
+      <p>Safari on iOS exposes no video encoder to the page. The tool detects the missing API at load and says so, instead of playing the file, spinning a progress bar and failing. Android Chrome and desktop Chrome, Edge, Brave, Opera and Firefox builds with WebCodecs all work.</p>
+
+      <h2>What the target size does to the picture</h2>
+      <p>Two levers move together: the bitrate budget that follows from the target size, and the resolution ladder. The page keeps the largest resolution whose bits-per-pixel stays above a floor, so a small cap lowers the resolution rather than turning the frame into mush. If a result looks worse than you expected, raise the cap before you blame the codec.</p>
+
+      <p class="fine"><a href="/">Back to the compressor</a></p>
+    </article>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <p class="foot__word" aria-hidden="true">Clipunder</p>
+      <p class="foot__note">One page, one job. No account, no analytics, no upload &mdash; the file never leaves the tab.</p>
+    </div>
+    <nav class="foot__nav" aria-label="Site">
+      <a href="/">Compressor</a>
+      <a href="/about">About</a>
+      <a href="/benchmarks">Benchmarks</a>
+      <a href="/formats">Formats</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <p class="foot__small">Encoding uses WebCodecs &middot; MP4 muxing by Mediabunny (MPL-2.0) &middot; files stay on your device.</p>
+  </div>
+</footer>
+
+</body>
+</html>

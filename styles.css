@@ -948,6 +948,36 @@ h1 {
   opacity: .9;
 }
 
+.doc__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 22px 0 18px;
+  font-size: .875rem;
+}
+.doc__table th {
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+  padding: 0 12px 8px 0;
+  border-bottom: 1px solid var(--line-2);
+}
+.doc__table td {
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-2);
+  vertical-align: top;
+}
+.doc__table td:first-child { color: var(--ink); }
+.doc__table tr:last-child td { border-bottom: none; }
+@media (max-width: 640px) {
+  .doc__table { font-size: .8125rem; }
+  .doc__table th, .doc__table td { padding-right: 8px; }
+}
+
 /* ---------- static pages (about / privacy / contact) ---------- */
 
 .doc {

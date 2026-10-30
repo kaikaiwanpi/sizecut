@@ -6,6 +6,8 @@ const PAGES = {
   '/about': '/md/about.md',
   '/privacy': '/md/privacy.md',
   '/contact': '/md/contact.md',
+  '/benchmarks': '/md/benchmarks.md',
+  '/formats': '/md/formats.md',
 };
 
 export async function onRequest(context) {

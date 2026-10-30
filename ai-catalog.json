@@ -49,6 +49,29 @@
         "contact clipunder",
         "report a broken video compression"
       ]
+    },
+    {
+      "identifier": "urn:air:clipunder.com:page:benchmarks",
+      "displayName": "Clipunder compression benchmarks",
+      "description": "Five measured end-to-end runs through the live page: input size, output size, wall-clock time, and whether the file was repackaged or re-encoded.",
+      "type": "text/html",
+      "url": "https://clipunder.com/benchmarks",
+      "representativeQueries": [
+        "how long does it take to compress a video in the browser",
+        "video compression benchmark browser webcodecs"
+      ]
+    },
+    {
+      "identifier": "urn:air:clipunder.com:page:formats",
+      "displayName": "Supported video containers",
+      "description": "Which containers are read (MP4, MOV, M4V, WEBM, MKV), which are copied instead of re-encoded when they already fit, and why AVI and iOS Safari are not supported.",
+      "type": "text/html",
+      "url": "https://clipunder.com/formats",
+      "representativeQueries": [
+        "which video formats can a browser compress",
+        "mkv to mp4 without re-encoding",
+        "does video compression work on iphone"
+      ]
     }
   ]
 }
