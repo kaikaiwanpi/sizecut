@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Use when a video must fit an upload limit (Discord or any cap) and the work has to happen in the user's own browser without uploading the file. Covers supported containers, the 10/25/50/100/500 MB presets, the Discord limits that contradict each other, and what the tool refuses to do.",
       "url": "https://clipunder.com/skills/clipunder-video-compression/SKILL.md",
-      "digest": "sha256:119c5ff3c9f7243cf7cff47cf56f266ad36ac6d6913e65f4af95b98d4bd27990"
+      "digest": "sha256:1ec9ad7f28e2b69ee434c321005fa06579047763dd752c90641b355eb3dc4fcb"
     }
   ]
 }
