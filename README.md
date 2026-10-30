@@ -54,3 +54,8 @@ The folder is a static site: push it to a repository and point GitHub Pages or C
 Pages at it. Both serve over https, so the module import works exactly as it does on
 localhost. No server code, no functions, no storage. Largest asset 718 KB, inside
 Cloudflare Pages' 25 MiB per-file limit.
+
+## Deploys
+
+Pushing to `main` publishes automatically: GitHub Actions runs `wrangler pages deploy` with a
+Pages-only API token, and Cloudflare Pages serves the commit. No manual upload step.
