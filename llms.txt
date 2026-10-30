@@ -1,0 +1,32 @@
+# Clipunder
+
+> Clipunder re-encodes a video in your browser so it lands under a size limit —
+> the limits Discord uses for uploads, or any limit you type in. No account, no
+> upload, no server in the compression path. The file is read from your disk by
+> your own browser and never leaves it.
+
+## Pages
+
+- [Compressor](https://clipunder.com/): pick a target size (10, 25, 50, 100, 500 MB
+  or custom), drop an MP4/MOV/M4V/WEBM/MKV file, download an H.264 MP4. Includes the
+  Discord upload-limit table with sources, the bitrate math, and a FAQ.
+- [About](https://clipunder.com/about): what the tool does and does not do, supported
+  containers, how the encoding works (WebCodecs + Mediabunny MPL-2.0).
+- [Privacy](https://clipunder.com/privacy): files are never uploaded; no cookies, no
+  analytics; hosting logs by Cloudflare Pages.
+- [Contact](https://clipunder.com/contact): contact@clipunder.com.
+
+## Facts an agent can rely on
+
+- Supported input containers: MP4, MOV, M4V, WEBM, MKV. AVI is not supported.
+- Output: H.264 video + AAC audio in an MP4 container, always under the chosen cap.
+- A file that already fits is not re-encoded: MP4 is returned untouched, MKV/MOV with
+  H.264 + AAC is repackaged into MP4 without touching the streams.
+- iOS Safari exposes no video encoder to the page, so the tool declines there instead
+  of failing halfway.
+- Target sizes offered: 10 MB, 25 MB, 50 MB, 100 MB, 500 MB, custom.
+
+## Machine-readable
+
+- [Sitemap](https://clipunder.com/sitemap.xml)
+- [AI catalog](https://clipunder.com/ai-catalog.json)
