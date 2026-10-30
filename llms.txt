@@ -26,8 +26,8 @@
 - Output: H.264 video + AAC audio in an MP4 container, always under the chosen cap.
 - A file that already fits is not re-encoded: MP4 is returned untouched, MKV/MOV with
   H.264 + AAC is repackaged into MP4 without touching the streams.
-- iOS Safari exposes no video encoder to the page, so the tool declines there instead
-  of failing halfway.
+- iOS 16.4 and later can run it, but a phone encodes far slower than a laptop; older iOS
+  has no encoder exposed and the page says so up front.
 - Target sizes offered: 10 MB, 25 MB, 50 MB, 100 MB, 500 MB, custom.
 
 ## Machine-readable

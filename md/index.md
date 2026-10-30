@@ -54,8 +54,9 @@ tabs.
 hundreds of megabytes of frames in memory, which is what makes browser compressors fall
 over on phones.
 
-**Does it work on a phone?** On Android Chrome yes. iOS Safari exposes no video encoder to
-the page, and the page says so up front instead of failing halfway.
+**Does it work on a phone?** On Android Chrome yes. On iPhone and iPad it also runs from
+iOS 16.4 onwards, but a phone encodes far slower than a laptop and can have the tab killed
+for memory, so a long clip belongs on a computer.
 
 ## Sources
 

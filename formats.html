@@ -61,8 +61,8 @@
       <h2>Why AVI is refused</h2>
       <p>The browser stack this page relies on (WebCodecs plus a JavaScript demuxer) has no AVI container parser. Rather than accept the file and fail minutes later, the page rejects it at intake and names the containers that do work. If you need AVI, convert the container first &mdash; the video inside is often H.264 already, and a remux will be lossless and fast.</p>
 
-      <h2>Why iPhone and iPad are refused</h2>
-      <p>Safari on iOS exposes no video encoder to the page. The tool detects the missing API at load and says so, instead of playing the file, spinning a progress bar and failing. Android Chrome and desktop Chrome, Edge, Brave, Opera and Firefox builds with WebCodecs all work.</p>
+      <h2>iPhone and iPad: it runs, but it is slow</h2>
+      <p>iOS 16.4 and later expose WebCodecs to Safari, so the tool does run on a phone. The problem is throughput: a phone encoder is several times slower than a laptop's, the device heats up and throttles, and Safari will kill a tab that holds too much memory. For anything longer than a minute or two, use a computer. On iOS older than 16.4 the encoder API is missing entirely and the page says so at load instead of failing halfway.</p>
 
       <h2>What the target size does to the picture</h2>
       <p>Two levers move together: the bitrate budget that follows from the target size, and the resolution ladder. The page keeps the largest resolution whose bits-per-pixel stays above a floor, so a small cap lowers the resolution rather than turning the frame into mush. If a result looks worse than you expected, raise the cap before you blame the codec.</p>

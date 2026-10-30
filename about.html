@@ -45,7 +45,7 @@
       <ul>
         <li>Not a batch tool. One file at a time, on purpose: a queue means several decoders and hundreds of megabytes of frames in memory, which is exactly what makes browser compressors fall over on phones.</li>
         <li>Not a converter for every container. MP4, MOV, M4V, WEBM and MKV are read; AVI is not, and the page says so instead of failing halfway through.</li>
-        <li>Not an iOS tool. Safari on iPhone and iPad exposes no video encoder to the page, so the page detects that and tells you up front rather than burning your battery.</li>
+        <li>Not a phone tool. iPhone and iPad can run it from iOS 16.4 onwards, but a phone encodes several times slower than a laptop, heats up, and can have the tab killed for memory &mdash; long clips belong on a computer. Older iOS versions expose no encoder at all, and the page says so instead of failing halfway.</li>
         <li>Not a cloud service. There is no server in the compression path.</li>
       </ul>
 

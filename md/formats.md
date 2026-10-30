@@ -29,11 +29,12 @@ seconds re-encoded.
 The browser stack (WebCodecs plus a JavaScript demuxer) has no AVI container parser.
 Rather than accept the file and fail minutes later, the page rejects it at intake.
 
-## Why iPhone and iPad are refused
+## iPhone and iPad: it runs, but it is slow
 
-Safari on iOS exposes no video encoder to the page. The tool detects the missing API at
-load and says so. Android Chrome and desktop Chrome, Edge, Brave, Opera and Firefox builds
-with WebCodecs work.
+iOS 16.4 and later expose WebCodecs to Safari, so the tool does run on a phone. A phone
+encoder is several times slower than a laptop's, the device heats up and throttles, and
+Safari kills tabs that hold too much memory. For anything longer than a minute or two, use
+a computer. On iOS older than 16.4 the encoder API is missing and the page says so.
 
 ## What the target size does to the picture
 

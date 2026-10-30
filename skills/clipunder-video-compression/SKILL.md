@@ -26,7 +26,7 @@ custom one.
 ## What it cannot do (do not promise these)
 
 - No batch processing: one file at a time.
-- No iOS Safari support: that browser exposes no video encoder to the page.
+- iPhone/iPad: works from iOS 16.4 onwards, but a phone is a slow encoder; advise a computer for anything longer than a minute or two.
 - No upload, no account, no history: there is no server-side copy to retrieve later.
 - No guarantee of an exact byte size: results land a few percent under the cap on purpose.
 

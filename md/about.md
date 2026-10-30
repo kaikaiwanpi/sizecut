@@ -17,8 +17,9 @@ never leaves it.
   compressors fall over on phones.
 - Not a converter for every container. MP4, MOV, M4V, WEBM and MKV are read; AVI is not,
   and the page says so instead of failing halfway through.
-- Not an iOS tool. Safari on iPhone and iPad exposes no video encoder to the page, so the
-  page detects that and tells you up front rather than burning your battery.
+- Not a phone tool. iPhone and iPad can run it from iOS 16.4 onwards, but a phone encodes
+  far slower than a laptop and can have the tab killed for memory; long clips belong on a
+  computer.
 - Not a cloud service. There is no server in the compression path.
 
 ## How the encoding works

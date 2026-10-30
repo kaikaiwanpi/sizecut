@@ -449,6 +449,8 @@
       el.budget.hidden = false;
       updateBudget();
       el.go.disabled = false;
+      const advice = mobileAdvice(file, meta);
+      if (advice) el.goNote.textContent = advice;
     } catch (e) {
       if (stale()) return;
       state.file = null;
@@ -462,6 +464,21 @@
       el.file.value = '';
       fail(e);
     }
+  }
+
+  // Phones do expose an encoder since iOS 16.4, but they encode far slower than a
+  // laptop and Safari kills tabs that hold too much memory. Say so before they wait.
+  function mobileAdvice(file, meta) {
+    const mobile = (navigator.userAgentData && navigator.userAgentData.mobile) ||
+      /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (!mobile) return '';
+    const pixels = (meta.width || 0) * (meta.height || 0);
+    const seconds = meta.duration || 0;
+    const work = pixels * seconds * (meta.fps || 30);
+    if (work > 8e9 || file.size > 120 * 1024 * 1024) {
+      return 'Heavy file for a phone: expect several minutes, keep this tab in front, and keep the phone plugged in. If it stalls, use a computer.';
+    }
+    return '';
   }
 
   function clearResult() {
@@ -615,7 +632,7 @@
     el.go.disabled = true;
   } else if (typeof VideoEncoder !== 'function') {
     el.alert.hidden = false;
-    el.alert.textContent = 'This browser has no WebCodecs video encoder, so it cannot compress locally. Chrome or Edge on desktop, or Chrome on Android, all work; iOS Safari does not expose an encoder yet.';
+    el.alert.textContent = 'This browser does not expose a video encoder (WebCodecs) to the page, so it cannot compress locally. Chrome, Edge or Firefox on desktop and Chrome on Android all work; on iPhone or iPad you need iOS 16.4 or newer.';
     el.go.disabled = true;
   }
 
