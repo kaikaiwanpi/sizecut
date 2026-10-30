@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Clipunder</title>
+<meta name="description" content="What Clipunder is, what it does not do, and how the compression actually works. One page, one job, no account.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#fbfaf7">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://clipunder.com/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clipunder">
+<meta property="og:title" content="About — Clipunder">
+<meta property="og:description" content="What this tool is, what it is not, and how the encoding works.">
+<meta property="og:url" content="https://clipunder.com/about.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="/" aria-label="Clipunder — home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">Clipunder</span>
+    </a>
+    <p class="topbar__note">
+      <span class="dot" aria-hidden="true"></span>
+      Runs in your tab &middot; nothing is uploaded
+    </p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <article class="doc">
+      <p class="hero__eyebrow micro">About</p>
+      <h1>One page, one job</h1>
+      <p class="lede">Clipunder re-encodes a video in your browser so it lands under a size limit &mdash; the limits Discord uses for uploads, and any other limit you type in.</p>
+
+      <h2>What it is</h2>
+      <p>A single static page. You pick a target size, drop a clip, and the page decodes it, encodes H.264 + AAC, and hands you a download. There is no account, no queue, no dashboard, and no upload step &mdash; the file is read from your disk by your own browser and never leaves it.</p>
+
+      <h2>What it is not</h2>
+      <ul>
+        <li>Not a batch tool. One file at a time, on purpose: a queue means several decoders and hundreds of megabytes of frames in memory, which is exactly what makes browser compressors fall over on phones.</li>
+        <li>Not a converter for every container. MP4, MOV, M4V, WEBM and MKV are read; AVI is not, and the page says so instead of failing halfway through.</li>
+        <li>Not an iOS tool. Safari on iPhone and iPad exposes no video encoder to the page, so the page detects that and tells you up front rather than burning your battery.</li>
+        <li>Not a cloud service. There is no server in the compression path.</li>
+      </ul>
+
+      <h2>How the encoding works</h2>
+      <p>Decoding and encoding go through WebCodecs, the browser API for exactly this. Container parsing and MP4 muxing come from <a href="https://mediabunny.dev/" rel="noopener">Mediabunny</a>, which ships under MPL-2.0 and is vendored into this site rather than loaded from a CDN. If a file already fits the target, it is not re-encoded: MP4 comes back untouched, and MKV or MOV with H.264 + AAC is repackaged into MP4 in a fraction of a second with the streams copied.</p>
+
+      <h2>Who runs it</h2>
+      <p>Clipunder is an independent one-person project. It is not affiliated with Discord. Questions, bug reports, complaints about a bad encode: <a href="mailto:contact@clipunder.com">contact@clipunder.com</a>.</p>
+
+      <p class="fine"><a href="/">Back to the compressor</a></p>
+    </article>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <p class="foot__word" aria-hidden="true">Clipunder</p>
+      <p class="foot__note">One page, one job. No account, no analytics, no upload &mdash; the file never leaves the tab.</p>
+    </div>
+    <nav class="foot__nav" aria-label="Site">
+      <a href="/">Compressor</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p class="foot__small">Encoding uses WebCodecs &middot; MP4 muxing by Mediabunny (MPL-2.0) &middot; files stay on your device.</p>
+  </div>
+</footer>
+
+</body>
+</html>
