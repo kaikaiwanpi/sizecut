@@ -1,4 +1,5 @@
 _dev/
 .wrangler/
+dist/
 *.log
 .DS_Store
