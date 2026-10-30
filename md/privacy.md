@@ -20,12 +20,30 @@ The site is served by Cloudflare Pages. Like any web host, Cloudflare processes 
 that delivers this page — IP address, browser user agent, the file requested — in order to
 serve it and to block abuse. That is standard web server logging.
 
-## Advertising, later
+## Advertising and third-party cookies
 
-This site is free and may carry third-party advertising in the future. If ads are added,
-they will be labelled, this page will be updated before they go live, and any ad partner
-that needs consent will get it through a consent prompt rather than by default. No
-advertising code runs on this page today.
+This site is free and may carry third-party advertising in the future. If advertising is
+added it will be labelled, and this page will be updated before the first ad is served:
+
+- Third-party vendors, **including Google**, may use cookies to serve ads based on a
+  user's prior visits to this website or other websites.
+- Google's use of advertising cookies enables it and its partners to serve ads to users
+  based on their visit to this site and/or other sites on the internet.
+- Users may opt out of personalised advertising in Google Ads Settings
+  (https://www.google.com/settings/ads), or opt out of a third-party vendor's use of
+  cookies for personalised advertising at https://www.aboutads.info/choices/.
+- How Google uses information from sites that use its services:
+  https://policies.google.com/technologies/partner-sites — its advertising rules:
+  https://policies.google.com/technologies/ads.
+- Where the law requires consent (EEA, UK, Switzerland), advertising cookies are only
+  set after you agree through the consent prompt.
+
+No advertising code runs on this page today.
+
+## Consent
+
+Advertising and analytics storage is off by default. Nothing that needs consent is loaded
+before you give it, and the choice is stored in your browser rather than on a server.
 
 ## Email
 
