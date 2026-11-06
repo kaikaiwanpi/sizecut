@@ -44,13 +44,13 @@
       <h2>What it is not</h2>
       <ul>
         <li>Not a batch tool. One file at a time, on purpose: a queue means several decoders and hundreds of megabytes of frames in memory, which is exactly what makes browser compressors fall over on phones.</li>
-        <li>Not a converter for every container. MP4, MOV, M4V, WEBM and MKV are read; AVI is not, and the page says so instead of failing halfway through.</li>
+        <li>Not a converter for every container. <a href="/formats">MP4, MOV, M4V, WEBM and MKV are read</a>; AVI is not, and the page says so instead of failing halfway through.</li>
         <li>Not a phone tool. iPhone and iPad can run it from iOS 16.4 onwards, but a phone encodes several times slower than a laptop, heats up, and can have the tab killed for memory &mdash; long clips belong on a computer. Older iOS versions expose no encoder at all, and the page says so instead of failing halfway.</li>
         <li>Not a cloud service. There is no server in the compression path.</li>
       </ul>
 
       <h2>How the encoding works</h2>
-      <p>Decoding and encoding go through WebCodecs, the browser API for exactly this. Container parsing and MP4 muxing come from <a href="https://mediabunny.dev/" rel="noopener">Mediabunny</a>, which ships under MPL-2.0 and is vendored into this site rather than loaded from a CDN. If a file already fits the target, it is not re-encoded: MP4 comes back untouched, and MKV or MOV with H.264 + AAC is repackaged into MP4 in a fraction of a second with the streams copied.</p>
+      <p>Decoding and encoding go through WebCodecs, the browser API for exactly this. Container parsing and MP4 muxing come from <a href="https://mediabunny.dev/" rel="noopener">Mediabunny</a>, which ships under MPL-2.0 and is vendored into this site rather than loaded from a CDN. If a file already fits the target, it is not re-encoded: MP4 comes back untouched, and MKV or MOV with H.264 + AAC is repackaged into MP4 in a fraction of a second with the streams copied. Both paths are timed on real files in the <a href="/benchmarks">benchmarks</a>.</p>
 
       <h2>Who runs it</h2>
       <p>Clipunder is an independent one-person project. It is not affiliated with Discord. Questions, bug reports, complaints about a bad encode: <a href="mailto:contact@clipunder.com">contact@clipunder.com</a>.</p>

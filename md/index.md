@@ -4,7 +4,7 @@ Clipunder re-encodes a video in your browser tab so it fits a size limit. Pick t
 your Discord account allows, drop a clip, and download an H.264 MP4 that uploads on the
 first try. The file never leaves your computer.
 
-- Input: MP4, MOV, M4V, WEBM, MKV (AVI is not supported)
+- Input: MP4, MOV, M4V, WEBM, MKV (AVI is not supported) — the [format matrix](/formats) explains what each one costs
 - Output: H.264 video + AAC audio in an MP4 container, under the chosen cap
 - Target sizes: 10 MB, 25 MB, 50 MB, 100 MB, 500 MB, or a custom number
 - No account, no upload, no watermark, no analytics

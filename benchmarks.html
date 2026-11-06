@@ -58,7 +58,7 @@
 
       <h2>What the table shows</h2>
       <ul>
-        <li><strong>The fast path is about 80&times; faster.</strong> The MKV that already fit was repackaged in 0.5 s; the comparable re-encode took tens of seconds. If your file already fits the cap, you are not paying for an encode at all.</li>
+        <li><strong>The fast path is about 80&times; faster.</strong> The MKV that already fit was repackaged in 0.5 s; the comparable re-encode took tens of seconds. If your file already fits the cap, you are not paying for an encode at all. Which containers take that path is in the <a href="/formats">format matrix</a>.</li>
         <li><strong>Time tracks pixels and duration, not file size.</strong> The 30-second 1080p clip and the 6-second 720p clip differ by 20&times; in wall clock because one has roughly 12&times; the frames and 2.25&times; the pixels per frame.</li>
         <li><strong>Overshoot is not zero.</strong> A 1 MB target produced 906 KB &mdash; 9% under, which is the budget working as designed. A 10 MB target produced 9.81 MB. Files land a few percent under the cap rather than exactly on it.</li>
         <li><strong>Repackaging can grow a file slightly.</strong> The MKV came back 1,780 bytes larger as MP4 because container overhead differs. Still under the target, but worth knowing if you are chasing the last kilobyte.</li>

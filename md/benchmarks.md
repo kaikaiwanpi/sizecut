@@ -27,7 +27,8 @@ table and an older laptop slower.
 ## What the table shows
 
 - **The fast path is about 80× faster.** The MKV that already fit was repackaged in 0.5 s;
-  the comparable re-encode took tens of seconds.
+  the comparable re-encode took tens of seconds. Which containers
+  take that path is in the [format matrix](/formats).
 - **Time tracks pixels and duration, not file size.** The 30-second 1080p clip and the
   6-second 720p clip differ by 20× in wall clock because of frame count and pixel count.
 - **Overshoot is not zero.** A 1 MB target produced 906 KB — 9% under, which is the budget

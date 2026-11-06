@@ -22,7 +22,7 @@ embeds and plays on desktop, web and mobile.
 A file that already fits never enters the encoder. MP4 comes back byte-identical under its
 own name; MKV or MOV gets its compressed streams copied into a new MP4 wrapper, which is
 packaging, not a quality decision. Measured: 0.5 seconds for a 7.96 MB MKV versus tens of
-seconds re-encoded.
+seconds re-encoded. All five runs are timed in the [benchmarks](/benchmarks).
 
 ## Why AVI is refused
 

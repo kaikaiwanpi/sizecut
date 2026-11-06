@@ -15,7 +15,7 @@ never leaves it.
 - Not a batch tool. One file at a time, on purpose: a queue means several decoders and
   hundreds of megabytes of frames in memory, which is exactly what makes browser
   compressors fall over on phones.
-- Not a converter for every container. MP4, MOV, M4V, WEBM and MKV are read; AVI is not,
+- Not a converter for every container. [MP4, MOV, M4V, WEBM and MKV are read](/formats); AVI is not,
   and the page says so instead of failing halfway through.
 - Not a phone tool. iPhone and iPad can run it from iOS 16.4 onwards, but a phone encodes
   far slower than a laptop and can have the tab killed for memory; long clips belong on a

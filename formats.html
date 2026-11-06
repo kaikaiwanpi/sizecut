@@ -55,7 +55,7 @@
       <p>Output is always the same: H.264 video with AAC audio inside MP4, which is what Discord embeds and plays on desktop, web and mobile.</p>
 
       <h2>Two different costs hiding in one button</h2>
-      <p>A file that already fits never enters the encoder. MP4 comes back byte-identical under its own name; MKV or MOV gets its compressed streams copied into a new MP4 wrapper, which is a packaging exercise, not a quality decision. Measured on the live page: 0.5 seconds for a 7.96 MB MKV, versus tens of seconds for the same file re-encoded.</p>
+      <p>A file that already fits never enters the encoder. MP4 comes back byte-identical under its own name; MKV or MOV gets its compressed streams copied into a new MP4 wrapper, which is a packaging exercise, not a quality decision. Measured on the live page: 0.5 seconds for a 7.96 MB MKV, versus tens of seconds for the same file re-encoded &mdash; all five runs are timed in the <a href="/benchmarks">benchmarks</a>.</p>
       <p>Everything else is a real encode: decode every frame, re-compress at a bitrate derived from your target size, and mux. That is where the seconds go, and where quality is decided.</p>
 
       <h2>Why AVI is refused</h2>
